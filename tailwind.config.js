@@ -6,6 +6,9 @@ module.exports = {
               primary: '#1B73E8',
           },
       },
+      backgroundImage: {
+        'starwars': "url('/src/components/images/swbackground.jpeg')"
+      }
   },
   plugins: [
     require('flowbite/plugin')
