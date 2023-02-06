@@ -113,7 +113,7 @@ const App = () => {
           <Dropdown
             label="Select Character"
             dismissOnClick={true}
-            className="opacity-80"
+            className="opacity-90"
             color="warning"
           >
             <ul>
