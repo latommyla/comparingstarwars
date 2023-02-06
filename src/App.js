@@ -79,7 +79,7 @@ const App = () => {
         <a href="/">
           <img
             className="w-40 m-auto"
-            src="https://www.freepnglogos.com/uploads/star-wars-logo-png-8.png"
+            src="https://i.ibb.co/xg5w8fR/logo.png"
           />
         </a>
       </div>
