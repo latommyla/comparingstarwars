@@ -4,33 +4,40 @@ import "./app.css";
 import { Dropdown, Card, Accordion, Button } from "flowbite-react";
 
 const App = () => {
+  // Declaring state variables
   const [characterName, setCharacterName] = useState([]);
   const [planetName, setPlanetName] = useState([]);
   const [starshipName, setStarshipName] = useState([]);
   const [vehicleName, setVehicleName] = useState([]);
 
+  // Fetching data
   const fetchData = () => {
+    // Declaring the APIs
     const peopleAPI = "https://swapi.dev/api/people";
     const planetAPI = "https://swapi.dev/api/planets";
     const starshipAPI = "https://swapi.dev/api/starships";
     const vehicleAPI = "https://swapi.dev/api/vehicles";
 
+    // Gets data from the APIs
     const getPeopleAPI = axios.get(peopleAPI);
     const getPlanetAPI = axios.get(planetAPI);
     const getStarshipAPI = axios.get(starshipAPI);
     const getVehicleAPI = axios.get(vehicleAPI);
     axios.all([getPeopleAPI, getPlanetAPI, getStarshipAPI, getVehicleAPI]).then(
       axios.spread((...data) => {
+        // Returning the results from API Data
         const allDataPeople = data[0].data.results;
         const allDataPlanet = data[1].data.results;
         const allDataStarship = data[2].data.results;
         const allDataVehicle = data[3].data.results;
 
+        // Setting the state to render functions
         setCharacterName(allDataPeople);
         setPlanetName(allDataPlanet);
         setStarshipName(allDataStarship);
         setVehicleName(allDataVehicle);
 
+        // Logging functions
         console.log(allDataPeople);
         console.log(allDataPlanet);
         console.log(allDataStarship);
@@ -39,16 +46,19 @@ const App = () => {
     );
   };
 
+  // Button onclick to fetch from functions
   const onClickHandler = () => {
     setPlanetName();
     setStarshipName();
     console.log(setPlanetName);
   };
 
+  // Allowing us to access the state variable
   useEffect(() => {
     fetchData();
   }, []);
 
+  // Returning card function
   const renderCard = (result, index) => {
     return (
       <Card>
@@ -62,6 +72,7 @@ const App = () => {
     );
   };
 
+  // Returning function to display all data
   return (
     <div className="h-screen w-screen text-center m-auto">
       <div className="p-2 bg-gray-300 bg-opacity-30">
